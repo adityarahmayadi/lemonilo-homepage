@@ -1,10 +1,14 @@
 import * as React from 'react'
-import { Box, Font, Touch } from '@lemonilo/components'
+import { StyleSheet } from 'react-native'
+import { Box, Font, Touch, Images } from '@lemonilo/components'
+import Slick from 'react-native-slick'
+import Slider from '@lemonilo/components/slider'
 
 const HomePage = ({ navigation }) => (
-  <Box f={1} fAlign='center' fJustify='center' w p='8px'>
-    <Font>Hello Homepage</Font>
-    <Touch w h='32px' bg='#d3d3d3' r='16px' m='20px' onPress={() => navigation.navigate('Login')} />
+  // screen container
+  <Box w>
+    {/* slider */}
+    <Slider />
   </Box>
 )
 
