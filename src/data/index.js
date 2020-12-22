@@ -24,3 +24,46 @@ export const slider = [
     image: require('@lemonilo/assets/slider/banner_6.png')
   }
 ]
+
+export const categories = [
+  {
+    id: 'category-1',
+    icon: require('@lemonilo/assets/category/mie.png'),
+    label: 'Mie'
+  },
+  {
+    id: 'category-2',
+    icon: require('@lemonilo/assets/category/bahan_dapur.png'),
+    label: 'Bahan Dapur'
+  },
+  {
+    id: 'category-3',
+    icon: require('@lemonilo/assets/category/cemilan.png'),
+    label: 'Cemilan'
+  },
+  {
+    id: 'category-4',
+    icon: require('@lemonilo/assets/category/perawatan_kulit.png'),
+    label: 'Perawatan Kulit'
+  },
+  {
+    id: 'category-5',
+    icon: require('@lemonilo/assets/category/lemonilo_box.png'),
+    label: 'Lemonilo Box'
+  },
+  {
+    id: 'category-6',
+    icon: require('@lemonilo/assets/category/minuman.png'),
+    label: 'Minuman'
+  },
+  {
+    id: 'category-7',
+    icon: require('@lemonilo/assets/category/promo_icon.png'),
+    label: 'Promo'
+  },
+  {
+    id: 'category-8',
+    icon: require('@lemonilo/assets/category/wiranilo.png'),
+    label: 'Wiranilo'
+  },
+]

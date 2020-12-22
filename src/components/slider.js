@@ -3,8 +3,8 @@ import Slick from 'react-native-slick'
 import { Box, Images } from '@lemonilo/components'
 import { slider } from '@lemonilo/data'
 
-const Slider = () => (
-  <Box w h='200px'>
+const Slider = props => (
+  <Box w h='200px' {...props}>
     <Slick>
       {
         slider.map((item) => (
