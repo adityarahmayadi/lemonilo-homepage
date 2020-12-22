@@ -1,11 +1,12 @@
 import React from 'react'
-import { Box, Images, Font } from '@lemonilo/components'
+import { Touch, Images, Font } from '@lemonilo/components'
 
-const CategoryItem = ({w, h, label, icon}) => (
-  <Box
+const CategoryItem = ({w, h, label, icon, action}) => (
+  <Touch
     w={w}
     h={h}
     fAlign='center'
+    onPress={action}
   >
     <Images
       source={icon}
@@ -13,10 +14,10 @@ const CategoryItem = ({w, h, label, icon}) => (
       h='50px'
       m='0px 0px 8px'
     />
-    <Box w={w}>
+    <Touch w={w}>
       <Font textAlign='center'>{label}</Font>
-    </Box>
-  </Box>
+    </Touch>
+  </Touch>
 )
 
 export default CategoryItem

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Images, Font } from '@lemonilo/components'
+import { Box, Images, Font, Touch } from '@lemonilo/components'
 import { colors } from '@lemonilo/utils/constants'
 import { formatIDR } from '@lemonilo/utils/helpers'
 
@@ -12,9 +12,10 @@ const ProductCard = ({
     size,
     photoUrl,
     isBestSeller,
-    uuid
+    uuid,
+    action
 }) => (
-  <Box
+  <Touch
     key={uuid}
     w='162px'
     r='8px'
@@ -22,6 +23,7 @@ const ProductCard = ({
     overflow='hidden'
     posi='relative'
     m='0px 8px 0px 0px'
+    onPress={action}
   >
     {
       isBestSeller && (
@@ -97,7 +99,7 @@ const ProductCard = ({
     <Box w p='8px' bg={colors.green20} fAlign='center'>
       <Font c='white' fontWeight='bold'>Beli</Font>
     </Box>
-  </Box>
+  </Touch>
 )
 
 export default ProductCard

@@ -10,7 +10,7 @@ import ListItem from '@lemonilo/components/listitem'
 import CategoryItem from '@lemonilo/components/categoryitem'
 import { featuredProduct, recentProduct, yourneeds } from '@lemonilo/data'
 
-const HomePage = () => (
+const HomePage = ({ navigation }) => (
   // screen container
   <SafeArea w f={1} p={`${StatusBar.currentHeight}px 0px 0px 0px`}>
     <Box p='8px' h='56px' fAlign='center' fDir='row' bg='white'>
@@ -42,7 +42,7 @@ const HomePage = () => (
         <ListItem
           datasource={featuredProduct}
           contentItem={
-            ({ item }) => <ProductCard {...item} />
+            ({ item }) => <ProductCard {...item} action={() => navigation.navigate('Detail')}/>
           }
         />
       </Box>
@@ -65,7 +65,7 @@ const HomePage = () => (
         <ListItem
           datasource={recentProduct}
           contentItem={
-            ({ item }) => <ProductCard {...item} />
+            ({ item }) => <ProductCard {...item} action={() => navigation.navigate('Detail')}/>
           }
         />
       </Box>
@@ -88,7 +88,7 @@ const HomePage = () => (
         <ListItem
           datasource={yourneeds}
           contentItem={
-            ({ item }) => <CategoryItem {...item} w='80px' key={`key-${item.id}`} />
+            ({ item }) => <CategoryItem {...item} w='80px' key={`key-${item.id}`} action={() => navigation.navigate('Katalog')} />
           }
         />
       </Box>

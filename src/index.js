@@ -1,15 +1,19 @@
 import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createStackNavigator } from '@react-navigation/stack'
 import { Box, Images } from '@lemonilo/components'
 import { colors } from '@lemonilo/utils/constants'
 import HomePage from './screens/home'
 import LoginPage from './screens/login'
 import OrderPage from './screens/order'
+import DetailPage from './screens/details'
 import UnderConstruction from './screens/underconstruction'
 
 const Tab = createBottomTabNavigator()
+const Stack = createStackNavigator()
 
-const App = () => (
+const MainTabNavigator = () => (
   <Tab.Navigator
     screenOptions={({ route }) => ({
       tabBarIcon: ({ focused }) => {
@@ -43,6 +47,28 @@ const App = () => (
     <Tab.Screen name="Pesanan" component={OrderPage} />
     <Tab.Screen name="Masuk" component={LoginPage} />
   </Tab.Navigator>
+)
+
+const App = () => (
+  <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={MainTabNavigator}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Katalog"
+        component={UnderConstruction}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Detail"
+        component={DetailPage}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  </NavigationContainer>
 )
 
 export default App
