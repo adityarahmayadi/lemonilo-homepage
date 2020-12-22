@@ -1,8 +1,18 @@
 import React from 'react'
 import { Box, Images, Font } from '@lemonilo/components'
 import { colors } from '@lemonilo/utils/constants'
+import { formatIDR } from '@lemonilo/utils/helpers'
 
-const ProductCard = () => (
+const ProductCard = ({ 
+    name,
+    discount,
+    price,
+    gimmickPrice,
+    merchant,
+    size,
+    photoUrl,
+    isBestSeller
+}) => (
   <Box
     w='162px'
     r='8px'
@@ -11,33 +21,41 @@ const ProductCard = () => (
     posi='relative'
     m='0px 8px 0px 0px'
   >
-    <Box
-      posi='absolute'
-      top='0px'
-      w='80px'
-      rBottomEnd='8px'
-      left='0px'
-      p='4px'
-      bg={colors.orange10}
-      z={10}
-      fAlign='center'
-    >
-      <Font fontSize='10px' c='white' fontWeight='bold'>Best Seller</Font>
-    </Box>
-    
-    <Box  
-      posi='absolute'
-      top='0px'
-      right='8px'
-      p='4px'
-      rBottomEnd='4px'
-      rBottomStart='4px'
-      bg={colors.yellow30}
-      z={10}
-      fAlign='center'
-    >
-      <Font fontSize='10px' c={colors.red30} fontWeight='bold'>20%</Font>
-    </Box>
+    {
+      isBestSeller && (
+        <Box
+          posi='absolute'
+          top='0px'
+          w='80px'
+          rBottomEnd='8px'
+          left='0px'
+          p='4px'
+          bg={colors.orange10}
+          z={10}
+          fAlign='center'
+        >
+          <Font fontSize='10px' c='white' fontWeight='bold'>Best Seller</Font>
+        </Box>
+      )
+    }
+
+    {
+      discount > 0 && (
+        <Box  
+          posi='absolute'
+          top='0px'
+          right='8px'
+          p='4px'
+          rBottomEnd='4px'
+          rBottomStart='4px'
+          bg={colors.yellow30}
+          z={10}
+          fAlign='center'
+        >
+          <Font fontSize='10px' c={colors.red30} fontWeight='bold'>{`-${Math.ceil(discount)}%`}</Font>
+        </Box>
+      )
+    }
 
     <Box
       p='12px 0px 0px'
@@ -51,13 +69,13 @@ const ProductCard = () => (
       <Images
         w='100%'
         resizeMode='contain'
-        source={{uri: 'https://static.lemonilo.com/product/cda1719195957aed7f2537cb15f254a0.png?tr=w-200'}}
+        source={{uri: photoUrl}}
       />
     </Box>
     <Box p='8px' bg='white'>
-      <Font c={colors.grey10}>Lemonilo</Font>                
-      <Font numberOfLines={2}>Hampers Natal dan Tahun Baru</Font>
-      <Font fontSize='8px' c={colors.grey10}>400gr</Font>
+      <Font c={colors.grey10}>{merchant.name}</Font>                
+      <Font numberOfLines={2}>{name}</Font>
+      <Font fontSize='8px' c={colors.grey10}>{size}</Font>
       <Box w fDir='row' fAlign='center'>
         <Box f='1'>
           <Font
@@ -66,11 +84,11 @@ const ProductCard = () => (
             numberOfLines={1}
             textDecor='line-through'
           >
-            Rp. 390.000
+            {formatIDR(gimmickPrice)}
           </Font>
         </Box>
         <Box f='2'>
-          <Font c='black'>Rp. 390.000</Font>
+          <Font c='black'>{formatIDR(price)}</Font>
         </Box>
       </Box>
     </Box>

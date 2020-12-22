@@ -6,8 +6,11 @@ import Categories from '@lemonilo/components/categories'
 import { colors } from '@lemonilo/utils/constants'
 import Shelf from '@lemonilo/components/shelf'
 import ProductCard from '@lemonilo/components/productcard'
+import ListItem from '@lemonilo/components/listitem'
+import CategoryItem from '@lemonilo/components/categoryitem'
+import { featuredProduct, recentProduct, yourneeds } from '@lemonilo/data'
 
-const HomePage = ({ navigation }) => (
+const HomePage = () => (
   // screen container
   <SafeArea w f={1} p={`${StatusBar.currentHeight}px 0px 0px 0px`}>
     <Box p='8px' h='56px' fAlign='center' fDir='row' bg='white'>
@@ -31,24 +34,20 @@ const HomePage = ({ navigation }) => (
         }
       />
 
-      {/* Featured Product */}
+      {/* featured product */}
       <Box p='0px 16px'>
         <Font fontWeight='bold' fontSize='14px'>Pilihan Minggu Ini</Font>
       </Box>
       <Box w p='16px'>
-        <Box w overflow='hidden'>
-          <Box fDir='row' fAlign='flex-start'>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-          </Box>
-        </Box>
+        <ListItem
+          datasource={featuredProduct}
+          contentItem={
+            ({ item }) => <ProductCard {...item} />
+          }
+        />
       </Box>
 
+      {/* shelf - separator */}
       <Shelf
         image={require('@lemonilo/assets/separator/separator-2.png')}
         bg={colors.yellow10}
@@ -58,24 +57,20 @@ const HomePage = ({ navigation }) => (
         }
       />
 
-      {/* Featured Product */}
+      {/* new product */}
       <Box p='0px 16px'>
         <Font fontWeight='bold' fontSize='14px'>Terbaru di Lemonilo</Font>
       </Box>
       <Box w p='16px'>
-        <Box w overflow='hidden'>
-          <Box fDir='row' fAlign='flex-start'>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-          </Box>
-        </Box>
+        <ListItem
+          datasource={recentProduct}
+          contentItem={
+            ({ item }) => <ProductCard {...item} />
+          }
+        />
       </Box>
 
+      {/* shelf - separator */}
       <Shelf
         image={require('@lemonilo/assets/separator/separator-3.png')}
         bg={colors.yellow10}
@@ -85,8 +80,17 @@ const HomePage = ({ navigation }) => (
         }
       />
 
-      <Box p='0px 16px'>
+      {/* your needs */}
+      <Box p='0px 16px' m='0px 0px 12px'>
         <Font fontWeight='bold' fontSize='14px'>Pilihan untuk Kebutuhanmu </Font>
+      </Box>
+      <Box w p='16px'>
+        <ListItem
+          datasource={yourneeds}
+          contentItem={
+            ({ item }) => <CategoryItem {...item} w='80px' />
+          }
+        />
       </Box>
     </Scroll>
   </SafeArea>
