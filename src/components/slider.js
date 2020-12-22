@@ -5,7 +5,7 @@ import { slider } from '@lemonilo/data'
 
 const Slider = props => (
   <Box w h='200px' {...props}>
-    <Slick>
+    <Slick autoplay={true}>
       {
         slider.map((item) => (
           <Images

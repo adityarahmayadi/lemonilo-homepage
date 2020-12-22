@@ -1,12 +1,13 @@
 import React from 'react'
 import { Box, Images, Font } from '@lemonilo/components'
 
-const Shelf = ({image, content, bg }) => (
+const Shelf = ({image, content, bg, m }) => (
   <Box
     w
     bg={bg}
     p='16px'
     fDir='row'
+    m={m}
   >
     <Images
       source={image}
