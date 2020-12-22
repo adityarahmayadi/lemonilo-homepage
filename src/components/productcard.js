@@ -11,9 +11,11 @@ const ProductCard = ({
     merchant,
     size,
     photoUrl,
-    isBestSeller
+    isBestSeller,
+    uuid
 }) => (
   <Box
+    key={uuid}
     w='162px'
     r='8px'
     b='0.5px solid rgba(151, 151, 151, 0.4)'

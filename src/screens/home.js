@@ -88,7 +88,7 @@ const HomePage = () => (
         <ListItem
           datasource={yourneeds}
           contentItem={
-            ({ item }) => <CategoryItem {...item} w='80px' />
+            ({ item }) => <CategoryItem {...item} w='80px' key={`key-${item.id}`} />
           }
         />
       </Box>

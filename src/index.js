@@ -4,6 +4,8 @@ import { Box, Images } from '@lemonilo/components'
 import { colors } from '@lemonilo/utils/constants'
 import HomePage from './screens/home'
 import LoginPage from './screens/login'
+import OrderPage from './screens/order'
+import UnderConstruction from './screens/underconstruction'
 
 const Tab = createBottomTabNavigator()
 
@@ -36,9 +38,9 @@ const App = () => (
     }}
   >
     <Tab.Screen name="Beranda" component={HomePage} />
-    <Tab.Screen name="Notifikasi" component={LoginPage} />
-    <Tab.Screen name="Life" component={LoginPage} />
-    <Tab.Screen name="Pesanan" component={LoginPage} />
+    <Tab.Screen name="Notifikasi" component={UnderConstruction} />
+    <Tab.Screen name="Life" component={UnderConstruction} />
+    <Tab.Screen name="Pesanan" component={OrderPage} />
     <Tab.Screen name="Masuk" component={LoginPage} />
   </Tab.Navigator>
 )
