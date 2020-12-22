@@ -7,6 +7,6 @@ Technical Test of Lemonilo Recruitment
 
 2- `cd lemonilo-homepage/`
 
-3- `yarn install | npm install` to install yarn packages
+3- `yarn install | npm install` to install packages
 
 4- yarn android.
